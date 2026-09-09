@@ -8,6 +8,7 @@ import logging
 
 from pathlib import Path
 
+import amok
 import amok.commands
 import amok.commands.init
 import amok.commands.plan
@@ -36,6 +37,9 @@ if __name__ == '__main__':
 	else:
 		logging.getLogger().setLevel(logging.INFO)
 	logging.debug("Amok version: %s", VERSION)
+	
+	if not args.workspace.is_absolute():
+		args.workspace = amok.DEFAULT_WORKSPACE_DIR / args.workspace
 	
 	if hasattr(args, "command_class"):
 		cmd = args.command_class(args)

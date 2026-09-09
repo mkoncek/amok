@@ -21,7 +21,7 @@ class Plan_command(Command, name = "plan"):
 		platform_phase = Platform_phase(packages = platform["packages"], dnf_conf = '''\
 [main]
 gpgcheck=0
-reposdir=/
+reposdir=/dev/null
 install_weak_deps=0
 protected_packages=""
 assumeyes=1
